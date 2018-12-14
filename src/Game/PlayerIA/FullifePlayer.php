@@ -66,7 +66,7 @@ class FullifePlayer extends Player
         if ($arrayOpp["score"] > $myarray["score"])
             return parent::friendChoice();
 
-        if (rand()/$arrayOpp["name"] == 0)
+        if (rand()%$arrayOpp["name"] == 0)
             return parent::friendChoice();
 
         if ($this->result->getLastScoreFor($this->mySide) < $this->result->getChoicesFor($this->opponentSide))
