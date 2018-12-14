@@ -59,8 +59,10 @@ class FullifePlayer extends Player
         if ($frd == 0)
             return parent::foeChoice();
         
-        //$arrayOpp = $this->result->getStatsFor($this->opponentSide);
-        
+        $arrayOpp = $this->result->getStatsFor($this->opponentSide);
+        $myarray = $this->result->getStatsFor($this->mySide);
+        if ($arrayOpp["score"] > $myarray["score"])
+            return parent::foeChoice();
 
         
         if ($this->result->getLastScoreFor($this->mySide) < $this->result->getChoicesFor($this->opponentSide))
