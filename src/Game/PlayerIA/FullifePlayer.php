@@ -43,7 +43,7 @@ class FullifePlayer extends Player
 
         $ran = rand(1, $this->result->getNbRound());
         if ($ran == $this->result->getNbRound())
-            return parent::foeChoice();
+            return parent::friendChoice();
 
         //getStatsFor was better...
         $foe = 0;
@@ -55,14 +55,15 @@ class FullifePlayer extends Player
                 $frd++;
         }
         if ($foe == 0)
-            return parent::foeChoice();
+            return parent::friendChoice();
         if ($frd == 0)
             return parent::foeChoice();
         
+        //if loosing, last hope
         $arrayOpp = $this->result->getStatsFor($this->opponentSide);
         $myarray = $this->result->getStatsFor($this->mySide);
         if ($arrayOpp["score"] > $myarray["score"])
-            return parent::foeChoice();
+            return parent::friendChoice();
 
         
         if ($this->result->getLastScoreFor($this->mySide) < $this->result->getChoicesFor($this->opponentSide))
