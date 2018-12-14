@@ -64,7 +64,7 @@ class FullifePlayer extends Player
         $arrayOpp = $this->result->getStatsFor($this->opponentSide);
         $myarray = $this->result->getStatsFor($this->mySide);
         if ($arrayOpp["score"] > $myarray["score"])
-            return parent::friendChoice();
+            return parent::foeChoice();
 
         $nbstr=count($arrayOpp["name"]);
         if (rand()%$nbstr == 0)
