@@ -41,6 +41,10 @@ class FullifePlayer extends Player
         // How can i display the result of each round ? $this->prettyDisplay()
         // -------------------------------------    -----------------------------------------------------
 
+        $val = $this->result->getNbRound();
+        $ran = rand(1, $val);
+        if ($ran == $this->result->getNbRound())
+            return parent::foeChoice();
         if ($this->result->getLastScoreFor($this->mySide) < $this->result->getChoicesFor($this->opponentSide))    
         {
             if ($this->result->getLastChoiceFor($this->mySide) == parent::friendChoice())
